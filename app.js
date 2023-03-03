@@ -59,6 +59,14 @@ app.post('/signup', async (req, res) => {
     })
 })
 
+app.get('/signup', async (req,res)=>{
+    try {
+        let customers = await User.find()
+        res.send(customers)
+    } catch (error) {
+        console.log(error);
+    }
+})
 app.get('/foods', async (req, res) => {
     try {
         let posts = await Post.find()
